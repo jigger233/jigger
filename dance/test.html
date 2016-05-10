@@ -1,0 +1,172 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>跳舞游戏</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+    body{background-color:#fef4d2;}
+    h2,form{text-align: center;}
+	</style>
+</head>
+<BODY>
+<br><br>
+<h2>跳舞游戏</h2>
+<hr width=300>
+<br>
+<form name=animation>
+<!-- [Step2]: 在此能够更改文本区域的行数和列数 -->
+  <textarea name=dancer rows=5 cols=16></textarea><br><br>
+  <input type=button value="开始跳舞" onClick = "start()">
+  <input type=button value="停止跳舞" onClick = "stop()">
+</form>
+
+<script type="text/JavaScript">
+
+
+var x=0;
+var judge=true;
+var max=0;
+if (navigator.userAgent.toLowerCase().indexOf("mac") != -1) var a="\r"; 
+else var a="\n";
+
+function start(){judge=true;Dancer();}
+function Dancer() {
+  document.animation.dancer.value = " " + a +
+  tl[x];
+  x++;
+<!-- [Step1]: 这里可以设置跳舞的节奏 -->
+  if (x != max&&judge) {setTimeout("Dancer()", 400);}
+  else if(x==max){x = 0;}
+}
+function stop(){judge=false;}
+
+function DanceList() {
+  max=DanceList.arguments.length;
+  for (i=0; i<max; i++)
+  this[i]=DanceList.arguments[i];
+}
+
+tl = new DanceList(
+"   o"+a+
+"  /|\\"+a+
+" */ \\*        "+a,
+
+"   o_"+a+
+"  \<| *"+a+
+"  *\>\\         "+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         "+a,
+
+" *\o_"+a+
+"  /  *"+a+
+" \<\\           "+a,
+
+"  _o/*"+a+
+" * |"+a+
+"  / \\         "+a,
+
+" *\\c/*"+a+
+"   )"+a+
+"  / \>         "+a,
+
+"     *"+a+
+"  \\__/c"+a+
+"   \> \\*       "+a,
+
+"   __/"+a+
+"    (o_*"+a+
+"     \\*       "+a,
+
+"      \\ /"+a+
+"       |"+a+
+"     */o\\*    "+a,
+
+"       \\_"+a+
+"       ("+a+
+"     */o\\*    "+a,
+
+"        \<_"+a+
+"      __("+a+
+"     * o|*    "+a,
+
+"         /_"+a+
+"      __("+a+
+"     * o|*   "+a,
+
+"         ___"+a+
+"      *\/ \>"+a+
+"       o|*    "+a,
+
+"        *"+a+
+"       o|_/"+a+
+"      */  \\   "+a,
+
+"        *"+a+
+"      _o|_"+a+
+"     *   \>\\   "+a,
+
+"       _o/*"+a+
+"      * |"+a+
+"       / \\    "+a,
+
+"      *\\o/*"+a+
+"        |"+a+
+"       / \\    "+a,
+
+"      c/*"+a+
+"      \<\\"+a+
+"      */\\     "+a,
+
+"      c__"+a+
+"      \<\ *"+a+
+"      */\\     "+a,
+
+"      c__"+a+
+"      /\ *"+a+
+"     * /\>     "+a,
+
+"      c/*"+a+
+"     /(__"+a+
+"    * /       "+a,
+
+"    __o/*"+a+
+"    * (__"+a+
+"      \<       "+a,
+
+"      __o_"+a+
+"     * /  *"+a+
+"      \<\\      "+a,
+
+"     *_o_"+a+
+"       | *"+a+
+"      \< \\     "+a,
+
+"     *_c_*"+a+
+"       |"+a+
+"       \>\\     "+a,
+
+"     *_c_*"+a+
+"       |__"+a+
+"       \>      "+a,
+
+"     *_c_*"+a+
+"     __|__"+a+
+"              "+a,
+
+" "+a+
+"     *_c_*"+a+
+"     __)__    "+a,
+
+" "+a+
+"     *\\c/*"+a+
+"     __)__    "+a
+
+);
+
+</script>
+
+</BODY>
+
+</HTML>
